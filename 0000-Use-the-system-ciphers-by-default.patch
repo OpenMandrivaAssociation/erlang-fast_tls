@@ -1,0 +1,27 @@
+From 82c3547bd1935d366371e15d03f9a3a8640e90c3 Mon Sep 17 00:00:00 2001
+From: Randy Barlow <randy@electronsweatshop.com>
+Date: Tue, 3 May 2016 18:54:12 -0400
+Subject: [PATCH] Use the system ciphers by default.
+
+This patch was originally written by Jeremy Cline
+<jeremy@jcline.org>.
+---
+ c_src/fast_tls_drv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git c_src/fast_tls_drv.c c_src/fast_tls_drv.c
+index e93389f..b6ae5f1 100644
+--- c_src/fast_tls_drv.c
++++ c_src/fast_tls_drv.c
+@@ -51,7 +51,7 @@ typedef unsigned __int32 uint32_t;
+ #define SSL_OP_NO_TICKET 0
+ #endif
+ 
+-#define CIPHERS "DEFAULT:!EXPORT:!LOW:!RC4:!SSLv2"
++#define CIPHERS "PROFILE=SYSTEM"
+ 
+ /* Wrappers around driver_alloc() that check  */
+ /* for OOM.                                   */
+-- 
+2.8.2
+
